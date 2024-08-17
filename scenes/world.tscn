@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbwec847ic6in"]
+
+[ext_resource type="PackedScene" uid="uid://cmkffe4o3ntta" path="res://scenes/player.tscn" id="1_5ytsw"]
+[ext_resource type="PackedScene" uid="uid://j1h6xeqeq1cc" path="res://scenes/box.tscn" id="2_av7i3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lcj5m"]
+
+[node name="World" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-88, 16)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(44, 20)
+shape = SubResource("WorldBoundaryShape2D_lcj5m")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+modulate = Color(0.17, 0.17, 0.17, 1)
+z_index = 2
+position = Vector2(-3756, -120)
+scale = Vector2(49, 7)
+polygon = PackedVector2Array(-112, 20, -112, 156, 268, 156, 268, 20)
+
+[node name="Polygon2D2" type="Polygon2D" parent="StaticBody2D"]
+modulate = Color(0.17, 0.17, 0.17, 1)
+z_index = 2
+position = Vector2(-50.6434, 0.400024)
+scale = Vector2(1.13913, 1)
+polygon = PackedVector2Array(-43.3283, 19.6, -700.672, 20, -697.16, -488, -352.336, -492.4)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-76.8, 0.400024)
+polygon = PackedVector2Array(-768, -484, -772, 20, -23.2, 19.6, -367.2, -488.4)
+
+[node name="Player" parent="." instance=ExtResource("1_5ytsw")]
+position = Vector2(64, -64)
+
+[node name="Box" parent="." instance=ExtResource("2_av7i3")]
+position = Vector2(-648, -632)
+
+[node name="Box4" parent="." instance=ExtResource("2_av7i3")]
+position = Vector2(-760, -872)
+
+[node name="Box2" parent="." instance=ExtResource("2_av7i3")]
+position = Vector2(448, -120)
+
+[node name="Box3" parent="." instance=ExtResource("2_av7i3")]
+position = Vector2(224, -272)
