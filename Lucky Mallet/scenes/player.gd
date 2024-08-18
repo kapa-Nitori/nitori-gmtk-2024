@@ -5,6 +5,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const PUSH_FORCE = 100
 const MAX_PUSH_VELOCITY = 150
+const VERTICAL_SPEED_LIMIT = JUMP_VELOCITY * 1.2
 
 @onready var mallet = $Mallet
 @onready var animation_player = $AnimationPlayer
@@ -16,20 +17,27 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
-	report_to_global()
+	#report_to_global()
+	#print(velocity.y, " ", VERTICAL_SPEED_LIMIT)
+	#
+
 	
-	# Add the gravity.
+	
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		
+	
+	if velocity.y < VERTICAL_SPEED_LIMIT:
+		velocity.y = VERTICAL_SPEED_LIMIT
 
 	# Handle jump.
 	if Input.is_action_pressed("jump") and is_on_floor():
 		jump()
-	elif  Input.is_action_just_released("jump"):
-		velocity.y = +200
+	elif Input.is_action_just_released("jump") and not is_on_floor() and velocity.y < 0:
+		velocity.y = +100
 	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+
 	var direction = Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
@@ -48,15 +56,10 @@ func _physics_process(delta):
 		if Global.boxes_array.has(collision_box) and abs(collision_box.get_linear_velocity().x) < MAX_PUSH_VELOCITY and not Input.is_action_pressed("hold_block"):
 			collision_box.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
 		if Global.boxes_array.has(collision_box) and abs(collision_box.get_linear_velocity().x) < MAX_PUSH_VELOCITY and Input.is_action_pressed("hold_block"):
-			collision_box.apply_central_impulse(collision.get_normal() * PUSH_FORCE * 3)
+			collision_box.apply_central_impulse(collision.get_normal() * PUSH_FORCE)
 			
-			
-		
-
 func jump():
 	velocity.y += JUMP_VELOCITY
-	
-
 	
 
 func mallet_utils():

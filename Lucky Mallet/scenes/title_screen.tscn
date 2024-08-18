@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsnmf17m0x3br"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wxpn7"]
+font_size = 100
+font_color = Color(0.391399, 0.731412, 7.70092e-07, 1)
+shadow_size = 5
+shadow_color = Color(1.38376e-07, 0.125881, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bgujb"]
+line_spacing = -9.0
+font_size = 25
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Lucky Mallet"
+label_settings = SubResource("LabelSettings_wxpn7")
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 0
+offset_top = 133.0
+offset_right = 2448.0
+offset_bottom = 346.0
+text = "A very hastily put together game jam submission about janky 
+game mechanics and size manipulation"
+label_settings = SubResource("LabelSettings_bgujb")

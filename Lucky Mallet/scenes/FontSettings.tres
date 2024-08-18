@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://d2t27eps8vsew"]
+
+[ext_resource type="FontFile" uid="uid://idevf3iaojb5" path="res://VCR_OSD_MONO_1.001.ttf" id="1_d345o"]
+
+[resource]
+font = ExtResource("1_d345o")
+font_size = 50
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(3, 3)

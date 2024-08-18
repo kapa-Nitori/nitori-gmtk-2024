@@ -19,7 +19,6 @@ physics_material_override = SubResource("PhysicsMaterial_j6r4f")
 script = ExtResource("1_nw0wd")
 size_small = Vector2(1, 1)
 size_large = Vector2(2, 2)
-mass_default = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
