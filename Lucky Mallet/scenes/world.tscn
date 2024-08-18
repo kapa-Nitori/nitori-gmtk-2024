@@ -1,9 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbwec847ic6in"]
+[gd_scene load_steps=8 format=3 uid="uid://bbwec847ic6in"]
 
 [ext_resource type="PackedScene" uid="uid://cmkffe4o3ntta" path="res://scenes/player.tscn" id="1_5ytsw"]
 [ext_resource type="PackedScene" uid="uid://j1h6xeqeq1cc" path="res://scenes/box.tscn" id="2_av7i3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lcj5m"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_njnbi"]
+resource_local_to_scene = true
+rough = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8bqw7"]
+resource_local_to_scene = true
+rough = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wreln"]
+resource_local_to_scene = true
+rough = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iwj0o"]
+resource_local_to_scene = true
+rough = true
 
 [node name="World" type="Node2D"]
 
@@ -38,12 +54,16 @@ position = Vector2(64, -64)
 
 [node name="Box" parent="." instance=ExtResource("2_av7i3")]
 position = Vector2(-648, -632)
-
-[node name="Box4" parent="." instance=ExtResource("2_av7i3")]
-position = Vector2(-760, -872)
+physics_material_override = SubResource("PhysicsMaterial_njnbi")
 
 [node name="Box2" parent="." instance=ExtResource("2_av7i3")]
 position = Vector2(448, -120)
+physics_material_override = SubResource("PhysicsMaterial_8bqw7")
 
 [node name="Box3" parent="." instance=ExtResource("2_av7i3")]
 position = Vector2(224, -272)
+physics_material_override = SubResource("PhysicsMaterial_wreln")
+
+[node name="Box4" parent="." instance=ExtResource("2_av7i3")]
+position = Vector2(-760, -872)
+physics_material_override = SubResource("PhysicsMaterial_iwj0o")

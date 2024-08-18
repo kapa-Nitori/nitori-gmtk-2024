@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" path="res://scenes/box.gd" id="1_nw0wd"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b8yn1"]
-rough = true
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j6r4f"]
+resource_local_to_scene = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_as0if"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhnxm"]
+resource_local_to_scene = true
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl8gw"]
@@ -14,14 +15,15 @@ size = Vector2(80, 80)
 [node name="Box" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 7
-physics_material_override = SubResource("PhysicsMaterial_b8yn1")
+physics_material_override = SubResource("PhysicsMaterial_j6r4f")
 script = ExtResource("1_nw0wd")
 size_small = Vector2(1, 1)
 size_large = Vector2(2, 2)
+mass_default = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_as0if")
+shape = SubResource("RectangleShape2D_xhnxm")
 debug_color = Color(9.62615e-08, 0.265484, 0.314413, 0.42)
 
 [node name="Colors" type="Node2D" parent="CollisionShape2D"]

@@ -17,20 +17,27 @@ extends RigidBody2D
 ## DEFAULT SIZE
 @export var size_default: Vector2 = Vector2(32, 32)
 
+## DEFAULT MASS. USES SIZE MULTIPLIER X VALUE
+@export var mass_default: float
+
 func _ready():
 	Global.boxes_array.append(self)
+	self.mass = mass_default
 
 func _on_area_2d_area_entered(_area):
 	box_type *= -1
-	#
+	
 	#print()
 	#print(box_type, " ", collision_shape_2d.shape.size)
 	if box_type >= 1: # for small box
-		self.indicator_color.color = Color(0, 1, 0)
-		self.colors.scale = size_small
-		self.collision_shape_2d.shape.size = size_default * size_small
+		indicator_color.color = Color(0, 1, 0)
+		colors.scale = size_small
+		collision_shape_2d.shape.size = size_default * size_small
+		self.mass = mass_default * size_small.x
 		
 	elif box_type <= -1: # for large box
-		self.indicator_color.color = Color(1, 0.5, 0)
-		self.colors.scale = size_large
-		self.collision_shape_2d.shape.size = size_default * size_large 
+		indicator_color.color = Color(1, 0.5, 0)
+		colors.scale = size_large
+		collision_shape_2d.shape.size = size_default * size_large 
+		self.mass = mass_default * size_large.x
+		
